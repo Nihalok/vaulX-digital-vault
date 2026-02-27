@@ -14,8 +14,7 @@ import Profile from '../pages/ProfilePage';
 import StoragePage from '../pages/StoragePage';      
 import ActivityLog from './ActivityLog';
 import { API_BASE_URL } from '../config'; 
-//hi abhijith
-//hello bro
+//this is the code
 
 const Dashboard = ({ onLogout }) => {
   const [vaultFiles, setVaultFiles] = useState([]);
