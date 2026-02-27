@@ -174,7 +174,7 @@ const RegisterPage = ({ onRegisterSuccess }) => {
         <div className="w-full max-w-xl mx-auto space-y-8">
           <div className="space-y-2">
             <h2 className="text-5xl font-black text-[#123458] font-serif">{step === 'account' ? 'Create Account' : step === 'plan' ? 'Select Plan' : 'Secure Billing'}</h2>
-            <p className="text-[#000000] text-2xl font-bold">The payment is on demo mode for now </p>
+            <p className="text-[#123458]/60 font-medium">Please provide the necessary details below.</p>
           </div>
 
           <div className="min-h-[380px]">
@@ -284,6 +284,7 @@ const RegisterPage = ({ onRegisterSuccess }) => {
                   <div><p className="text-[10px] font-black uppercase opacity-50">Selected Plan</p><p className="text-xl font-black">{pricingTiers[selectedPlan].name} Tier</p></div>
                   <p className="text-2xl font-black">₹{pricingTiers[selectedPlan].price}.00</p>
                 </div>
+                <p className="text-[#002144] font-bold">The payment is on demo mode for now.</p>
                 <div className="space-y-4">
                   <div className="space-y-1.5">
                     <label className={labelClass}>Card Information</label>

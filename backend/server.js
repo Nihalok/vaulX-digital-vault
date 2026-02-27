@@ -12,7 +12,7 @@ const app = express();
 app.use(cors());
 app.use(express.json()); 
 app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/files', require('./routes/fileRoutes'));
+app.use('/api/files', require('./routes/fileRoutes'));    
 app.use('/api/contact', contactRoutes);
 
 app.post('/api/subscribe', async (req, res) => {
