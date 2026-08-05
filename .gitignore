@@ -1,0 +1,4 @@
+# Prevent accidental root-level npm artifacts from being committed
+node_modules/
+package-lock.json
+.env
