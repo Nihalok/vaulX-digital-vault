@@ -48,19 +48,16 @@ exports.register = async (req, res) => {
     }
 
     // 4. Hash Password
-    const salt = await bcrypt.genSalt(12); // Using 12 rounds for better security
+    const salt = await bcrypt.genSalt(10); // 10 rounds is the industry standard (fast & secure)
     user.password = await bcrypt.hash(password, salt);
 
     // 5. Save User
     await user.save();
 
-    // 6. Log Activity (Optional but recommended)
-    try {
-      const logActivity = require('../utils/activityLogger');
-      await logActivity(user._id, "REGISTER", `New ${user.tier} identity created`);
-    } catch (e) {
+    // 6. Log Activity (non-blocking — does not delay the response)
+    logActivity(user._id, "REGISTER", `New ${user.tier} identity created`).catch(() => {
       console.log("Activity log failed silently");
-    }
+    });
 
     res.status(201).json({ 
       success: true, 
