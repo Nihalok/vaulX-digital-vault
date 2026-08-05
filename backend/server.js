@@ -11,6 +11,10 @@ const app = express();
 
 app.use(cors());
 app.use(express.json()); 
+
+// Root health check (prevents 404 when visiting backend URL directly)
+app.get('/', (req, res) => res.json({ status: 'VaultX API is online ✅' }));
+
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/files', require('./routes/fileRoutes'));    
 app.use('/api/contact', contactRoutes);
