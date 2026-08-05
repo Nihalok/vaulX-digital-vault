@@ -49,8 +49,10 @@ const App = () => {
   };
 
   // Private Route Wrapper (Protects Dashboard)
+  // Checks both React state AND localStorage to avoid race condition on login
   const PrivateRoute = ({ children }) => {
-    return isLoggedIn ? children : <Navigate to="/login" replace />;
+    const hasToken = isLoggedIn || !!localStorage.getItem('vaultToken');
+    return hasToken ? children : <Navigate to="/login" replace />;
   };
 
   return (

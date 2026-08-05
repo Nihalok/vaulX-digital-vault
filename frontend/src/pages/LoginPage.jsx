@@ -38,14 +38,13 @@ const LoginPage = ({ onLoginSuccess }) => {
       const data = await response.json();
 
       if (response.ok) {
-        // 1. Store the JWT token for session persistence
-        localStorage.setItem('vaultToken', data.token);
-        
-        // 2. Clear any local registration flags
+        // 1. Clear any local registration flags
         localStorage.removeItem('pendingVerificationEmail');
         
-        // 3. Trigger app-level success state and navigate
-        onLoginSuccess();
+        // 2. Trigger app-level success state (passes token so App.jsx saves it and sets isLoggedIn)
+        onLoginSuccess(data.token);
+        
+        // 3. Navigate after state update
         navigate('/dashboard');
       } else {
         // Handle specific status codes from your authController
