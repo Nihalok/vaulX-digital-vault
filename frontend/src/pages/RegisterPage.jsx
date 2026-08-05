@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../config';
 import { 
   ShieldCheck, Mail, Lock, User, ArrowRight, ChevronLeft, 
   CreditCard, Zap, Building2, ShieldAlert, Eye, EyeOff // <--- Imported Eye Icons
@@ -94,7 +95,6 @@ const RegisterPage = ({ onRegisterSuccess }) => {
 
   const completeRegistration = async () => {
     setLoading(true);
-    const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
     const payload = {
       name: formData.name,

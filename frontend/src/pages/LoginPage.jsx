@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../config';
 import { 
   ShieldCheck, Mail, Lock, ArrowRight, Eye, EyeOff,
   ChevronLeft, CheckCircle2, LockKeyhole, Loader2
@@ -25,8 +26,6 @@ const LoginPage = ({ onLoginSuccess }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
-    const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
     try {
       const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
