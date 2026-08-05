@@ -41,7 +41,7 @@ const Topbar = ({ user }) => {
           setIsSearchOpen(true);
         }
       } else {
-        searchResults([]);
+        setSearchResults([]);
         setIsSearchOpen(false);
       }
     }, 500);
